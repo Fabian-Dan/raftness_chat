@@ -4,7 +4,7 @@ const messageInput = document.getElementById("message-input");
 const messageButton = document.getElementById("message-button");
 const lockButton = document.getElementById("lock-button");
 
-const socket = new WebSocket("ws://79.213.54.98:8080");
+const socket = new WebSocket("wss://79.213.54.98:8080");
 
 socket.addEventListener("open", (event) => {
   console.log("Successfully connected to WebSocket!");
