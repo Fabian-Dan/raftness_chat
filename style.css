@@ -1,0 +1,75 @@
+:root {
+  --username-input-height: 10vh;
+  --message-input-height: 20vh;
+  --message-button-width: 90vw;
+  --message-button-height: 10vh;
+  --lock-button-width: calc(100vw - var(--message-button-width));
+  --lock-button-height: var(--message-button-height);
+  --button-font-scaling-factor: 0.9;
+}
+
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+#username-input {
+  width: 100vw;
+  height: var(--username-input-height);
+  font-size: 3em;
+}
+
+div {
+  height: calc(
+    100vh - var(--message-input-height) - var(--message-button-height) - 1em -
+      var(--username-input-height)
+  );
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+p {
+  margin: 0;
+  font-size: 2em;
+}
+
+#message-input {
+  width: 100vw;
+  height: var(--message-input-height);
+  position: absolute;
+  bottom: var(--message-button-height);
+  resize: none;
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#message-button {
+  width: var(--message-button-width);
+  height: var(--message-button-height);
+  position: absolute;
+  bottom: 0;
+  font-size: calc(
+    var(--button-font-scaling-factor) * var(--message-button-height)
+  );
+}
+
+#lock-button {
+  width: var(--lock-button-width);
+  height: var(--lock-button-height);
+  position: absolute;
+  bottom: 0;
+  left: calc(100vw - var(--lock-button-width));
+  background-color: green;
+  font-size: calc(
+    var(--button-font-scaling-factor) * var(--lock-button-height)
+  );
+}
+
+button {
+  border: none;
+  outline: none;
+}
