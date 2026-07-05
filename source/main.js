@@ -4,7 +4,20 @@ const messageInput = document.getElementById("message-input");
 const messageButton = document.getElementById("message-button");
 const lockButton = document.getElementById("lock-button");
 
-const socket = new WebSocket("wss://79.213.54.98:8080");
+async function getIP() {
+  const response = await fetch("https://ipinfo.io/json");
+  const data = await response.json();
+  return data.ip;
+}
+
+const ip = await getIP();
+
+let socket;
+if (ip === "79.213.54.98") {
+  socket = new WebSocket("wss://localhost:8080");
+} else {
+  socket = new WebSocket("wss://79.213.54.98:8080");
+}
 
 socket.addEventListener("open", (event) => {
   console.log("Successfully connected to WebSocket!");
